@@ -22,7 +22,7 @@ namespace Butson
             dynamic datas = await pr.GetData(token);
             pr.FormatDataTable(datas.data);
             pr.FormatDataTable(datas.data);
-
+            System.Console.WriteLine("");
         }
 
         void FormatDataTable(dynamic datas)
