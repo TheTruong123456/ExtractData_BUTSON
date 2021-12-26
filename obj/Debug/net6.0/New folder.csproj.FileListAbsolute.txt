@@ -1,0 +1,17 @@
+C:\Users\ADMIN\Desktop\New folder\bin\Debug\net6.0\New folder.exe
+C:\Users\ADMIN\Desktop\New folder\bin\Debug\net6.0\New folder.deps.json
+C:\Users\ADMIN\Desktop\New folder\bin\Debug\net6.0\New folder.runtimeconfig.json
+C:\Users\ADMIN\Desktop\New folder\bin\Debug\net6.0\New folder.dll
+C:\Users\ADMIN\Desktop\New folder\bin\Debug\net6.0\ref\New folder.dll
+C:\Users\ADMIN\Desktop\New folder\bin\Debug\net6.0\New folder.pdb
+C:\Users\ADMIN\Desktop\New folder\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\ADMIN\Desktop\New folder\obj\Debug\net6.0\New folder.csproj.AssemblyReference.cache
+C:\Users\ADMIN\Desktop\New folder\obj\Debug\net6.0\New folder.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ADMIN\Desktop\New folder\obj\Debug\net6.0\New folder.AssemblyInfoInputs.cache
+C:\Users\ADMIN\Desktop\New folder\obj\Debug\net6.0\New folder.AssemblyInfo.cs
+C:\Users\ADMIN\Desktop\New folder\obj\Debug\net6.0\New folder.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\Desktop\New folder\obj\Debug\net6.0\New folder.csproj.CopyComplete
+C:\Users\ADMIN\Desktop\New folder\obj\Debug\net6.0\New folder.dll
+C:\Users\ADMIN\Desktop\New folder\obj\Debug\net6.0\ref\New folder.dll
+C:\Users\ADMIN\Desktop\New folder\obj\Debug\net6.0\New folder.pdb
+C:\Users\ADMIN\Desktop\New folder\obj\Debug\net6.0\New folder.genruntimeconfig.cache
