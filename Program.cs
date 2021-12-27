@@ -14,6 +14,7 @@ namespace Butson
     {
         string email = "Butson@gmail.com";
         string pwd = "d_-bS57k";
+        SqlConnection Connect = new SqlConnection("Data Source=S03,1433;Initial Catalog=ArchiveDB;User ID=xhquser;Password=xhquser");
 
         static async Task Main(string[] args)
         {
@@ -24,30 +25,30 @@ namespace Butson
             string token = await pr.Login(pr.email, pr.pwd);
             dynamic datas = await pr.GetData(token);
 
-            for (int i = 0; i < 3; i++)
-            {
-                pr.FormatDataTable(datas.data, Table);
-            }
+            pr.FormatDataTable(datas.data, Table);
 
-
-            // pr.SaveToSQL(Table);
+            pr.SaveToSQL(Table, pr.Connect);
 
             // foreach (DataRow row in Table.Rows)
-            // {
             //     Console.WriteLine("ID: {0, 1}  Station: {1, 7} Datetime: {2, 10}  Dust: {3, 4}\t  CO: {4, 3}\t  NOx: {5, 3}\t  O2: {6, 3}\t  SO2: {7, 3}\t  Pressure: {8, 4}\t  Temp: {9, 4}\t  Flow: {10, 4}\t", row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10]);
-            // }
-            
+
 
         }
 
-        void SaveToSQL(DataTable Table)
-        {
-            string connetionString = @"Data Source = localhost, 3306; Initial Catalog = extract_butson; User ID = root; Password = thetruong123456";
-            using SqlConnection Connection = new SqlConnection(connetionString);
-            Connection.Open();
-            System.Console.WriteLine(Connection.State); 
-            // truy van
-            Connection.Close();
+        void SaveToSQL(DataTable Table, SqlConnection Connect)
+        {            
+            Connect.Open();
+            SqlCommand command_DeleteData = new SqlCommand(" delete FROM [ArchiveDB].[dbo].[ElectricalMarket_Raw]", Connect);
+            command_DeleteData.ExecuteNonQuery();
+
+            foreach (DataRow row in Table.Rows)
+            {
+                SqlCommand command_InsertData = new SqlCommand("insert into ElectricalMarket_Raw values('" + row["Date"] + "', '" + row["Category"] + "', '" + row["Values"] + "' )", Connect);
+                command_InsertData.ExecuteNonQuery();
+            }    
+
+            Connect.Close();
+
         }
         void FormatDataTable(dynamic datas, DataTable Table)
         {

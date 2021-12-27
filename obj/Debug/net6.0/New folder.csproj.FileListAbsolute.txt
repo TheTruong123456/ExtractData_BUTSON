@@ -38,3 +38,26 @@ C:\Users\truong.nguyen\Desktop\Rename\ExtractData_BUTSON\bin\Debug\net6.0\runtim
 C:\Users\truong.nguyen\Desktop\Rename\ExtractData_BUTSON\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
 C:\Users\truong.nguyen\Desktop\Rename\ExtractData_BUTSON\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\truong.nguyen\Desktop\Rename\ExtractData_BUTSON\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\truong.nguyen\Desktop\BUTSON\ExtractData_BUTSON\obj\Debug\net6.0\New folder.csproj.AssemblyReference.cache
+C:\Users\truong.nguyen\Desktop\BUTSON\ExtractData_BUTSON\obj\Debug\net6.0\New folder.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\truong.nguyen\Desktop\BUTSON\ExtractData_BUTSON\obj\Debug\net6.0\New folder.AssemblyInfoInputs.cache
+C:\Users\truong.nguyen\Desktop\BUTSON\ExtractData_BUTSON\obj\Debug\net6.0\New folder.AssemblyInfo.cs
+C:\Users\truong.nguyen\Desktop\BUTSON\ExtractData_BUTSON\obj\Debug\net6.0\New folder.csproj.CoreCompileInputs.cache
+C:\Users\truong.nguyen\Desktop\BUTSON\ExtractData_BUTSON\obj\Debug\net6.0\New folder.dll
+C:\Users\truong.nguyen\Desktop\BUTSON\ExtractData_BUTSON\obj\Debug\net6.0\ref\New folder.dll
+C:\Users\truong.nguyen\Desktop\BUTSON\ExtractData_BUTSON\obj\Debug\net6.0\New folder.pdb
+C:\Users\truong.nguyen\Desktop\BUTSON\ExtractData_BUTSON\bin\Debug\net6.0\New folder.exe
+C:\Users\truong.nguyen\Desktop\BUTSON\ExtractData_BUTSON\bin\Debug\net6.0\New folder.deps.json
+C:\Users\truong.nguyen\Desktop\BUTSON\ExtractData_BUTSON\bin\Debug\net6.0\New folder.runtimeconfig.json
+C:\Users\truong.nguyen\Desktop\BUTSON\ExtractData_BUTSON\bin\Debug\net6.0\New folder.dll
+C:\Users\truong.nguyen\Desktop\BUTSON\ExtractData_BUTSON\bin\Debug\net6.0\ref\New folder.dll
+C:\Users\truong.nguyen\Desktop\BUTSON\ExtractData_BUTSON\bin\Debug\net6.0\New folder.pdb
+C:\Users\truong.nguyen\Desktop\BUTSON\ExtractData_BUTSON\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\truong.nguyen\Desktop\BUTSON\ExtractData_BUTSON\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Users\truong.nguyen\Desktop\BUTSON\ExtractData_BUTSON\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Users\truong.nguyen\Desktop\BUTSON\ExtractData_BUTSON\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Users\truong.nguyen\Desktop\BUTSON\ExtractData_BUTSON\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Users\truong.nguyen\Desktop\BUTSON\ExtractData_BUTSON\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\truong.nguyen\Desktop\BUTSON\ExtractData_BUTSON\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\truong.nguyen\Desktop\BUTSON\ExtractData_BUTSON\obj\Debug\net6.0\New folder.csproj.CopyComplete
+C:\Users\truong.nguyen\Desktop\BUTSON\ExtractData_BUTSON\obj\Debug\net6.0\New folder.genruntimeconfig.cache

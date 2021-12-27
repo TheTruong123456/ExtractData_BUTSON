@@ -3103,11 +3103,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\truong.nguyen\\Desktop\\Rename\\ExtractData_BUTSON\\New folder.csproj",
+      "projectUniqueName": "C:\\Users\\truong.nguyen\\Desktop\\BUTSON\\ExtractData_BUTSON\\New folder.csproj",
       "projectName": "New folder",
-      "projectPath": "C:\\Users\\truong.nguyen\\Desktop\\Rename\\ExtractData_BUTSON\\New folder.csproj",
+      "projectPath": "C:\\Users\\truong.nguyen\\Desktop\\BUTSON\\ExtractData_BUTSON\\New folder.csproj",
       "packagesPath": "C:\\Users\\truong.nguyen\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\truong.nguyen\\Desktop\\Rename\\ExtractData_BUTSON\\obj\\",
+      "outputPath": "C:\\Users\\truong.nguyen\\Desktop\\BUTSON\\ExtractData_BUTSON\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\truong.nguyen\\AppData\\Roaming\\NuGet\\NuGet.Config",
