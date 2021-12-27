@@ -6,7 +6,6 @@ using System.Text;
 using Newtonsoft.Json;
 using System.Data;
 using System.Data.SqlClient;
-using System.Timers;
 
 namespace Butson
 {
@@ -14,7 +13,6 @@ namespace Butson
     {
         string email = "Butson@gmail.com";
         string pwd = "d_-bS57k";
-        SqlConnection Connect = new SqlConnection("Data Source=S03,1433;Initial Catalog=ArchiveDB;User ID=xhquser;Password=xhquser");
 
         static async Task Main(string[] args)
         {
@@ -27,7 +25,7 @@ namespace Butson
 
             pr.FormatDataTable(datas.data, Table);
 
-            pr.SaveToSQL(Table, pr.Connect);
+            // pr.SaveToSQL(Table);
 
             // foreach (DataRow row in Table.Rows)
             //     Console.WriteLine("ID: {0, 1}  Station: {1, 7} Datetime: {2, 10}  Dust: {3, 4}\t  CO: {4, 3}\t  NOx: {5, 3}\t  O2: {6, 3}\t  SO2: {7, 3}\t  Pressure: {8, 4}\t  Temp: {9, 4}\t  Flow: {10, 4}\t", row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10]);
@@ -35,20 +33,24 @@ namespace Butson
 
         }
 
-        void SaveToSQL(DataTable Table, SqlConnection Connect)
+        void SaveToSQL(DataTable Table)
         {            
+            SqlConnection Connect = new SqlConnection("Data Source=S03,1433;Initial Catalog=ArchiveDB;User ID=xhquser;Password=xhquser");
+            string nameDatabase = "ArchiveDB";
+            string nameTable = "ElectricalMarket_Raw";
+
             Connect.Open();
-            SqlCommand command_DeleteData = new SqlCommand(" delete FROM [ArchiveDB].[dbo].[ElectricalMarket_Raw]", Connect);
+
+            SqlCommand command_DeleteData = new SqlCommand($" delete FROM [{nameDatabase}].[dbo].[{nameTable}]", Connect);
             command_DeleteData.ExecuteNonQuery();
 
             foreach (DataRow row in Table.Rows)
             {
-                SqlCommand command_InsertData = new SqlCommand("insert into ElectricalMarket_Raw values('" + row["Date"] + "', '" + row["Category"] + "', '" + row["Values"] + "' )", Connect);
+                SqlCommand command_InsertData = new SqlCommand($"insert into {nameTable} values('" + row[0] + "', '" + row[1] + "', '" + row[2] + "', '" + row[3] + "', '" + row[4] + "', '" + row[5] + "', '" + row[6] + "', '" + row[7] + "', '" + row[8] + "', '" + row[9] + "', '" + row[10] + "' )", Connect);
                 command_InsertData.ExecuteNonQuery();
             }    
 
             Connect.Close();
-
         }
         void FormatDataTable(dynamic datas, DataTable Table)
         {
