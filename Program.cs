@@ -32,10 +32,11 @@ namespace Butson
 
             // pr.SaveToSQL(Table);
 
-            foreach (DataRow row in Table.Rows)
-            {
-                // Console.WriteLine("ID: {0, 1}  Station: {1, 7} Datetime: {2, 10}  Dust: {3, 4}\t  CO: {4, 3}\t  NOx: {5, 3}\t  O2: {6, 3}\t  SO2: {7, 3}\t  Pressure: {8, 4}\t  Temp: {9, 4}\t  Flow: {10, 4}\t", row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10]);
-            }
+            // foreach (DataRow row in Table.Rows)
+            // {
+            //     Console.WriteLine("ID: {0, 1}  Station: {1, 7} Datetime: {2, 10}  Dust: {3, 4}\t  CO: {4, 3}\t  NOx: {5, 3}\t  O2: {6, 3}\t  SO2: {7, 3}\t  Pressure: {8, 4}\t  Temp: {9, 4}\t  Flow: {10, 4}\t", row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10]);
+            // }
+            
 
         }
 
