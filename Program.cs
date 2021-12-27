@@ -5,6 +5,8 @@ using System.Net;
 using System.Text;
 using Newtonsoft.Json;
 using System.Data;
+using System.Data.SqlClient;
+using System.Timers;
 
 namespace Butson
 {
@@ -18,36 +20,49 @@ namespace Butson
             Console.OutputEncoding = Encoding.UTF8;
             Program pr = new Program();
 
+            DataTable Table = pr.CreateDataTable();
             string token = await pr.Login(pr.email, pr.pwd);
             dynamic datas = await pr.GetData(token);
-            pr.FormatDataTable(datas.data);
-            pr.FormatDataTable(datas.data);
-            System.Console.WriteLine("");
+
+            for (int i = 0; i < 3; i++)
+            {
+                pr.FormatDataTable(datas.data, Table);
+            }
+
+
+            // pr.SaveToSQL(Table);
+
+            foreach (DataRow row in Table.Rows)
+            {
+                Console.WriteLine("ID: {0, 1}  Station: {1, 7} Datetime: {2, 10}  Dust: {3, 4}\t  CO: {4, 3}\t  NOx: {5, 3}\t  O2: {6, 3}\t  SO2: {7, 3}\t  Pressure: {8, 4}\t  Temp: {9, 4}\t  Flow: {10, 4}\t", row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10]);
+            }
+
         }
 
-        void FormatDataTable(dynamic datas)
+        void SaveToSQL(DataTable Table)
         {
-            DataTable Table = new DataTable();
-
-            Table.Columns.Add("Name", typeof(string));
-            Table.Columns.Add("Dust", typeof(float));
-            Table.Columns.Add("CO", typeof(float));
-            Table.Columns.Add("O2", typeof(float));
-            Table.Columns.Add("Pressure", typeof(float));
-            Table.Columns.Add("Temp", typeof(float));
-            Table.Columns.Add("NOx", typeof(float));
-            Table.Columns.Add("SO2", typeof(float));
-            Table.Columns.Add("FLOW", typeof(float));
+            string connetionString = @"Data Source = localhost, 3306; Initial Catalog = extract_butson; User ID = root; Password = thetruong123456";
+            using SqlConnection Connection = new SqlConnection(connetionString);
+            Connection.Open();
+            System.Console.WriteLine(Connection.State); 
+            // truy van
+            Connection.Close();
+        }
+        void FormatDataTable(dynamic datas, DataTable Table)
+        {
+            Table.Clear();
 
             for (int i = 0; i < 8; i++)
             {
                 dynamic dataJson = datas[i].lastLog.measuringLogs;
 
-                string Name = datas[i].name.ToObject<string>();
+                int ID = i;
+                string Station = "Tram " + ID++.ToString();
+                DateTime Datetime = DateTime.Now;
                 float Dust = dataJson.Dust.value.ToObject<float>();
                 float Pressure = dataJson.Pressure.value.ToObject<float>();
                 float Temp = dataJson.Temp.value.ToObject<float>();
-                float FLOW = dataJson.FLOW.value.ToObject<float>();
+                float Flow = dataJson.FLOW.value.ToObject<float>();
 
                 if (i < 2)
                 {
@@ -56,17 +71,32 @@ namespace Butson
                     float NOx = dataJson.NOx.value.ToObject<float>();
                     float SO2 = dataJson.SO2.value.ToObject<float>();
 
-                    Table.Rows.Add(Name, Dust, CO, O2, Pressure, Temp, NOx, SO2, FLOW);
+                    Table.Rows.Add(ID, Station, Datetime, Dust, CO, NOx, O2, SO2, Pressure, Temp, Flow);
                 }
                 else
-                    Table.Rows.Add(Name, Dust, 0, 0, Pressure, Temp, 0, 0, FLOW);
+                    Table.Rows.Add(ID, Station, Datetime, Dust, 0, 0, 0, 0, Pressure, Temp, Flow);
 
             }
-
-            // foreach (DataRow row in Table.Rows)
-            //     Console.WriteLine("Name: {0, 40}  Dust: {1, 5}\t  CO: {2, 5}\t  O2: {3, 5}\t  Pressure: {4, 5}\t  Temp: {5, 5}\t  NOx: {6, 5}\t  SO2: {7, 5}\t  FLOW: {8, 5}\t", row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8]);
         }
+        DataTable CreateDataTable()
+        {
+            DataTable Table = new DataTable();
 
+            Table.Columns.Add("ID", typeof(int));
+            Table.Columns.Add("Station", typeof(string));
+            Table.Columns.Add("DateTime", typeof(DateTime));
+
+            Table.Columns.Add("Dust", typeof(float));
+            Table.Columns.Add("CO", typeof(float));
+            Table.Columns.Add("NOx", typeof(float));
+            Table.Columns.Add("O2", typeof(float));
+            Table.Columns.Add("SO2", typeof(float));
+            Table.Columns.Add("Pressure", typeof(float));
+            Table.Columns.Add("Temp", typeof(float));
+            Table.Columns.Add("Flow", typeof(float));
+
+            return Table;
+        }
         async Task<dynamic> GetData(string token)
         {
             string url = "https://global-api.ilotusland.com/station-auto/last-log";
@@ -87,7 +117,6 @@ namespace Butson
 
             return datas;
         }
-
         async Task<string> Login(string email, string pwd)
         {
             string url = "https://global-api.ilotusland.com/auth/login";
